@@ -1,0 +1,41 @@
+/* Fake Page Colors .. remove later */
+
+.app-header-dark .top-bar-brand>a{
+    color: black;
+}
+
+.app-header-dark .top-bar-search .input-group-search:not(.focus) .form-control, .app-header-dark .top-bar-search .input-group-search:not(.focus) .form-control::placeholder, .app-header-dark .top-bar-search .input-group-search:not(.focus) .input-group-text{
+    color: black;
+}
+
+.btn-account .account-description, .btn-account .account-name{
+    color: black;
+}
+
+.stacked-menu .menu-item.has-active:not(.has-child)>.menu-link{
+    color: rgb(197, 177, 0);
+}
+
+.stacked-menu .menu-link>.menu-icon,.fa-home:before{
+    color: rgb(197, 177, 0);
+}
+
+.auth-header {
+    background-color: rgb(197, 177, 0);
+}
+
+.app-header-dark{
+    background-color: rgb(197, 177, 0);
+}
+
+.btn-primary {
+    background-color: rgb(197, 177, 0);
+}
+
+.link {
+    color: rgb(197, 177, 0);
+}
+
+.pace .pace-progress {
+    background-color: brown;
+}
