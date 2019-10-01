@@ -18,7 +18,7 @@
         <!-- .app-main -->
         <main class="app-main">
             <!-- main page -->
-            <?php include_once('_checkIn.php'); ?>
+            <?php include_once('_checkOut.php'); ?>
             <?php include_once('_footer.php'); ?>
         </main><!-- /.app-main -->
 

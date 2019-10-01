@@ -22,10 +22,10 @@ $b = '';
 
                 <!-- .section-block -->
                 <section>
-                    <h1>Book Checked In!</h1>
+                    <h1>Book Checked Out!</h1>
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
-                            <p class="card-text">You are welcome to check in the next book.</p>
+                            <p class="card-text">You are welcome to check out a new book.</p>
                             <hr class="mb-4">
                         </div>
                     </div>
@@ -45,10 +45,10 @@ $b = '';
 //check if scanned
 if (isset($_GET['b']) && !isset($_POST['bookID'] )){
     //////////////////////////////////////////////////////
-    ////               Show Checkin Form
+    ////               Show Checkout Form
     //////////////////////////////////////////////////////
     $b = $_GET['b'];
-    //check in this book
+    //check out this book
 ?>
 <!-- .wrapper -->
 <div class="wrapper">
@@ -61,8 +61,8 @@ if (isset($_GET['b']) && !isset($_POST['bookID'] )){
 
                 <!-- .section-block -->
                 <section>
-                    <h1>Check In Book!</h1>
-                    <form class="needs-validation" method="POST" action="checkIn.php" novalidate="">
+                    <h1>Check Out Book!</h1>
+                    <form class="needs-validation" method="POST" action="checkOut.php" novalidate="">
                         <!-- .form-row -->
                         <div class="form-row">
                             <!-- grid column -->
@@ -99,25 +99,19 @@ if (isset($_GET['b']) && !isset($_POST['bookID'] )){
                             </div><!-- /grid column -->
                             <!-- grid column -->
                             <div class="col-md-3 mb-3">
-                                <label for="backDate">Return Date</label> <input type="date" class="form-control"
+                                <label for="backDate">Checkout Date</label> <input type="date" class="form-control"
                                     id="backDate" value="2019-10-01" required="">
                                 <div class="invalid-feedback"> Valid date required </div>
                             </div><!-- /grid column -->
                             <!-- grid column -->
                             <div class="col-md-3 mb-3">
-                                <label for="backTime">Return Time</label> <input type="time" class="form-control"
+                                <label for="backTime">Checkout Time</label> <input type="time" class="form-control"
                                     id="backTime" value="08:00" required="">
                                 <div class="invalid-feedback"> Valid date required </div>
                             </div><!-- /grid column -->
-                            <!-- grid column -->
-                            <div class="col-md-3 mb-3">
-                                <label for="duration">Total Duration</label> <input type="text" class="form-control"
-                                    id="duration" value="7 Days" readonly="" required="">
-                                <div class="invalid-feedback"> Security code required </div>
-                            </div><!-- /grid column -->
                         </div><!-- /.form-row -->
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue Check In</button>
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue Check Out</button>
                     </form><!-- /form .needs-validation -->
                 </section>
 
@@ -146,7 +140,7 @@ if ($b === ''){
 
                 <!-- .section-block -->
                 <section id="container" class="container">
-                    <h1>Scan Book ISBN BarCode for Check In</h1>
+                    <h1>Scan Book ISBN BarCode for Check Out</h1>
 
                     <!-- Show users camera -->
                     <div id="interactive" class="viewport"></div>

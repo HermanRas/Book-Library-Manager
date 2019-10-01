@@ -39,15 +39,29 @@
 
                             <!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon oi oi-pencil"></span> <span
-                                        class="menu-text">Check
-                                        In/Out</span></a> <!-- child menu -->
+                                <a href="#" class="menu-link"><span class="menu-icon oi oi-pencil"></span>
+                                    <span class="menu-text">
+                                        Books
+                                    </span>
+                                </a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="#" class="menu-link">Check Out</a>
+                                        <a href="checkOut.php" class="menu-link">
+                                            <span class="fa fa-chevron-circle-right"></span>
+                                            Check Out
+                                        </a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="#" class="menu-link">Check In</a>
+                                        <a href="checkIn.php" class="menu-link">
+                                            <span class="fa fa-chevron-circle-left"></span>
+                                            Check In
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="checkIn.php" class="menu-link">
+                                            <span class="fa fa-search"></span>
+                                            Search
+                                        </a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
@@ -58,14 +72,24 @@
                                         class="menu-text">Members</span></a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="#" class="menu-link">Profile</a>
+                                        <a href="profiles.php" class="menu-link">
+                                            <span class="fa fa-user"></span>
+                                            Profile
+                                        </a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="#" class="menu-link">Account</a>
+                                        <a href="profileSearch.php" class="menu-link">
+                                            <span class="fa fa-search"></span>
+                                            Search
+                                        </a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="#" class="menu-link">Notification</a>
+                                        <a href="profileNotification.php" class="menu-link">
+                                            <span class="fa fa-bell"></span>
+                                            Notifications
+                                        </a>
                                     </li>
+
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
@@ -75,16 +99,10 @@
                                 <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="" class="menu-link">Search Inventory</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="" class="menu-link">Add Book</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="" class="menu-link">Update Book</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="" class="menu-link">Remove Book</a>
+                                        <a href="" class="menu-link">
+                                            <span class="fa fa-book-open"></span>
+                                            Manage Inventory
+                                        </a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
@@ -99,10 +117,10 @@
                                 <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="#" class="menu-link">Manage System Users</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#" class="menu-link">System Settings</a>
+                                        <a href="#" class="menu-link">
+                                            <span class="fa fa-user-edit"></span>
+                                            Manage System Users
+                                        </a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
@@ -113,18 +131,22 @@
                                         class="menu-text">Reports</span></a>
                                 <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="#" class="menu-link">Most Active Members</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#" class="menu-link">Lapsed Member by Month</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#" class="menu-link">Top Books by Category</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#" class="menu-link">Top Authors</a>
-                                    </li>
+                                    <a href="#" class="menu-link">
+                                        <span class="fa fa-chart-area"></span>
+                                        Most Active Members
+                                    </a>
+                                    <a href="#" class="menu-link">
+                                        <span class="fa fa-chart-area"></span>
+                                        Lapsed Member by Month
+                                    </a>
+                                    <a href="#" class="menu-link">
+                                        <span class="fa fa-chart-area"></span>
+                                        Top Books by Category
+                                    </a>
+                                    <a href="#" class="menu-link">
+                                        <span class="fa fa-chart-area"></span>
+                                        Top Authors
+                                    </a>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
 
@@ -133,18 +155,14 @@
                                 <a href="#" class="menu-link"><span class="menu-icon oi oi-bar-chart"></span> <span
                                         class="menu-text">Stats</span></a> <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="#" class="menu-link">Member Stats</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#" class="menu-link">Book Stats</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#" class="menu-link">Billing Stats</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#" class="menu-link">Others</a>
-                                    </li>
+                                    <a href="#" class="menu-link">
+                                        <span class="fa fa-chart-bar"></span>
+                                        Member Stats
+                                    </a>
+                                    <a href="#" class="menu-link">
+                                        <span class="fa fa-chart-bar"></span>
+                                        Book Stats
+                                    </a>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
                         </ul><!-- /.menu -->

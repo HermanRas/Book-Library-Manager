@@ -2,14 +2,14 @@
 //////////////////////////////////////////////////////
 ////               Set Defaults
 //////////////////////////////////////////////////////
-$b = '';
+$member = '';
 
 
 //////////////////////////////////////////////////////
 ////               Show Saved Form
 //////////////////////////////////////////////////////
-    if (!isset($_GET['b']) && isset($_POST['bookID'] )){
-        $b = 'saved';
+    if (!isset($_GET['member']) && isset($_POST['memberID'] )){
+        $member = 'saved';
     ?>
 <!-- .wrapper -->
 <div class="wrapper">
@@ -22,10 +22,10 @@ $b = '';
 
                 <!-- .section-block -->
                 <section>
-                    <h1>Book Checked In!</h1>
+                    <h1>Member Updated!</h1>
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
-                            <p class="card-text">You are welcome to check in the next book.</p>
+                            <p class="card-text">Select the next member to update.</p>
                             <hr class="mb-4">
                         </div>
                     </div>
@@ -43,12 +43,12 @@ $b = '';
 <?php
     }
 //check if scanned
-if (isset($_GET['b']) && !isset($_POST['bookID'] )){
+if (isset($_GET['member']) && !isset($_POST['memberID'] )){
     //////////////////////////////////////////////////////
-    ////               Show Checkin Form
+    ////               Show Checkout Form
     //////////////////////////////////////////////////////
-    $b = $_GET['b'];
-    //check in this book
+    $member = $_GET['member'];
+    //check out this book
 ?>
 <!-- .wrapper -->
 <div class="wrapper">
@@ -61,8 +61,8 @@ if (isset($_GET['b']) && !isset($_POST['bookID'] )){
 
                 <!-- .section-block -->
                 <section>
-                    <h1>Check In Book!</h1>
-                    <form class="needs-validation" method="POST" action="checkIn.php" novalidate="">
+                    <h1>Update Members!</h1>
+                    <form class="needs-validation" method="POST" action="checkOut.php" novalidate="">
                         <!-- .form-row -->
                         <div class="form-row">
                             <!-- grid column -->
@@ -94,30 +94,24 @@ if (isset($_GET['b']) && !isset($_POST['bookID'] )){
                             <div class="col-md-3 mb-3">
                                 <label for="bookID">Book Id</label>
                                 <input type="text" class="form-control" id="bookID" name="bookID" placeholder="BookId"
-                                    value="<?php echo $b; ?>" required="">
+                                    value="<?php echo $member; ?>" required="">
                                 <div class="invalid-feedback"> bookID </div>
                             </div><!-- /grid column -->
                             <!-- grid column -->
                             <div class="col-md-3 mb-3">
-                                <label for="backDate">Return Date</label> <input type="date" class="form-control"
+                                <label for="backDate">Checkout Date</label> <input type="date" class="form-control"
                                     id="backDate" value="2019-10-01" required="">
                                 <div class="invalid-feedback"> Valid date required </div>
                             </div><!-- /grid column -->
                             <!-- grid column -->
                             <div class="col-md-3 mb-3">
-                                <label for="backTime">Return Time</label> <input type="time" class="form-control"
+                                <label for="backTime">Checkout Time</label> <input type="time" class="form-control"
                                     id="backTime" value="08:00" required="">
                                 <div class="invalid-feedback"> Valid date required </div>
                             </div><!-- /grid column -->
-                            <!-- grid column -->
-                            <div class="col-md-3 mb-3">
-                                <label for="duration">Total Duration</label> <input type="text" class="form-control"
-                                    id="duration" value="7 Days" readonly="" required="">
-                                <div class="invalid-feedback"> Security code required </div>
-                            </div><!-- /grid column -->
                         </div><!-- /.form-row -->
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue Check In</button>
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue Check Out</button>
                     </form><!-- /form .needs-validation -->
                 </section>
 
@@ -130,7 +124,7 @@ if (isset($_GET['b']) && !isset($_POST['bookID'] )){
 
 <?php
 }
-if ($b === ''){
+if ($member === ''){
     //////////////////////////////////////////////////////
     ////               Show Scanner Form
     //////////////////////////////////////////////////////
@@ -145,23 +139,71 @@ if ($b === ''){
             <div class="page-section">
 
                 <!-- .section-block -->
-                <section id="container" class="container">
-                    <h1>Scan Book ISBN BarCode for Check In</h1>
+                <section>
+                    <h1>Update Member Info!</h1>
+                    <!-- start Card -->
+                    <div class="card bg-secondary">
+                        <div class="card-body text-center">
+                            <h4 class="card-title"> Update Using QR Code</h4>
+                            <video style="max-width:300px;" id="qr-video"></video>
+                            <p class="card-text">
+                                <span id="cam-qr-result">Please scan QR Code</span>
+                            </p>
+                        </div>
+                    </div> <!-- end Card -->
 
-                    <!-- Show users camera -->
-                    <div id="interactive" class="viewport"></div>
-                    <div class="controls">
-                        <button class="stop">Stop scanner</button>
-                    </div>
+                    <hr>
 
-                    <!-- Show Last Scanned BarCode -->
-                    <h3>Results:</h3>
-                    <div id="result_strip">
-                        <ul class="thumbnails"></ul>
-                        <ul class="collector"></ul>
-                    </div>
+                    <!-- start Card -->
+                    <div class="card bg-secondary">
+                        <div class="card-body text-center">
+                            <h4 class="card-title"> Manual Search</h4>
+                            <p class="card-text">
+                                <form method="GET">
+                                    <!-- .form-row -->
+                                    <div class="form-row">
+                                        <!-- grid column -->
+                                        <div class="col-md-12 mb-3">
+                                            <label for="memberName">Name on card</label>
+                                            <select class="form-control" name="member" id="memberName" required="">
+                                                <option value=""> Please Select Member </option>
+                                                <option value="member1"> Jan KannieLeesie </option>
+                                            </select>
+                                            <div class="invalid-feedback"> Please Select Member </div>
+                                        </div><!-- /grid column -->
+                                    </div><!-- /form row column -->
+                                    <input type="submit" class="btn btn-primary  btn-lg btn-block" value="Update">
+                                </form>
+                            </p>
+                        </div>
+                    </div> <!-- end Card -->
                 </section>
 
+                <script type="module">
+                    //import plugins
+                    import QrScanner from "./JS/qr-scanner.min.js";
+                    QrScanner.WORKER_PATH = './JS/qr-scanner-worker.min.js';
+
+                    //set defaults
+                    const video = document.getElementById('qr-video');
+                    const camQrResult = document.getElementById('cam-qr-result');
+
+                    //run scan
+                    function setResult(label, result) {
+                        const updateLink =  '<a class="btn btn-primary" href="?member=' + result + '">Update</a> ';
+                        const deleteLink =  '<a class="btn btn-danger" href="?remove=' + result + '">Remove</a> ';
+                        const printLink =  '<a class="btn btn-info" href="?remove=' + result + '">Reprint QR Code</a>';
+                        label.innerHTML = '<h4>'+ result + '</h4>' + updateLink + deleteLink + printLink;
+                        label.style.color = 'orange';
+                        clearTimeout(label.highlightTimeout);
+                        label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
+                    }
+
+                    // ####### Web Cam Scanning #######
+                    const scanner = new QrScanner(video, result => setResult(camQrResult, result));
+                    scanner.start();
+                    scanner.setInversionMode('original');
+                </script>
 
             </div><!-- /.page-section -->
         </div><!-- /.page-inner -->

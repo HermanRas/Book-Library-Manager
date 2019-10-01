@@ -15,7 +15,7 @@
 
                                 </div> <!--  close column -->
                             </div> <!-- /.section-block -->
-                            <script src="JS/googlebooks.js"></script>
+                            <script src="JS/booksAPI.js"></script>
                             <!-- http://openlibrary.org/api/books?bibkeys=ISBN:0789730138&jscmd=data&format=json -->
                             <!-- http://openlibrary.org/search.json?author=tolkien -->
                             <!-- http://openlibrary.org/search.json?title=kingdom+marriage -->

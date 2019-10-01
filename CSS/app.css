@@ -1,8 +1,35 @@
 
+/* ==========================================================================
+   ==  Change Metric Background from default Style Sheet
+   ========================================================================== */
+body > div > main > div > div > div > div > div > div.metric-row{
+    background: #FFF;
+}
 
+/* ==========================================================================
+   ==  Change Check In Quality colors
+   ========================================================================== */
+select option[value="gd"] {
+  background: rgba(70, 230, 30, 0.3);
+}
 
+select option[value="fp"] {
+  background:rgba(235, 168, 52, 0.3);
+}
 
+select option[value="wd"], select option[value="tp"], select option[value="od"] {
+  background: rgba(235, 52, 125, 0.3);
+}
 
+/* ==========================================================================
+   ==  Change page width on small devices
+   ========================================================================== */
+@media(max-width:767px){
+    .page-inner{
+        padding: 5%;
+    }
+
+}
 
 /* Fake Page Colors .. remove later
 
