@@ -10,6 +10,24 @@ $b = '';
 //////////////////////////////////////////////////////
     if (!isset($_GET['b']) && isset($_POST['bookID'] )){
         $b = 'saved';
+
+    $bookID = '';
+    $MemberID = '';
+    $BookQualityOut = '';
+    $BookOut= '';
+    $OutUser= '';
+
+    $bookID = $_POST['bookID'];
+    $MemberID = $_POST['memberName'];
+    $BookQualityOut = $_POST['bookCondition'];
+    $BookOut= $_POST['outDate'].' '.$_POST['outTime'];
+    $OutUser= '1';
+
+    //insert new
+    include_once('db_conf.php');
+    $sql = " INSERT INTO book_logs ('BOOK_ID','MEMBER_ID','CHECKED_OUT','OUT_USER','OUT_QUALITY') VALUES ('$bookID','$MemberID','$BookOut','$OutUser','$BookQualityOut');";
+    $conn->query($sql);
+
     ?>
 <!-- .wrapper -->
 <div class="wrapper">
@@ -66,7 +84,6 @@ if (isset($_GET['b']) && !isset($_POST['bookID'] )){
         alert('Book Not In Library!');
         window.location.replace('inventorySearch.php');
         </script>";
-
     }
 ?>
 <!-- .wrapper -->
@@ -124,19 +141,21 @@ if (isset($_GET['b']) && !isset($_POST['bookID'] )){
                             <div class="col-md-3 mb-3">
                                 <label for="bookID">Book Id</label>
                                 <input type="text" class="form-control" id="bookID" name="bookID" placeholder="BookId"
-                                    value="<?php echo $b; ?>" required="">
+                                    value="<?php echo $bookrow['ID']; ?>" required="">
                                 <div class="invalid-feedback"> bookID </div>
                             </div><!-- /grid column -->
                             <!-- grid column -->
                             <div class="col-md-3 mb-3">
-                                <label for="backDate">Checkout Date</label> <input type="date" class="form-control"
-                                    id="backDate" value="2019-10-01" required="">
+                                <label for="backDate">Checkout
+                                    Date</label><input type="date" class="form-control" id="outDate" name="outDate"
+                                    value="<?php $date = new DateTime('now', new DateTimezone('Africa/Johannesburg')); echo $date->format('Y-m-d'); ?>"
+                                    required="">
                                 <div class="invalid-feedback"> Valid date required </div>
                             </div><!-- /grid column -->
                             <!-- grid column -->
                             <div class="col-md-3 mb-3">
                                 <label for="backTime">Checkout Time</label> <input type="time" class="form-control"
-                                    id="backTime" value="08:00" required="">
+                                    id="outTime" name="outTime" value="<?php echo $date->format('H:i'); ?>" required="">
                                 <div class="invalid-feedback"> Valid date required </div>
                             </div><!-- /grid column -->
                         </div><!-- /.form-row -->

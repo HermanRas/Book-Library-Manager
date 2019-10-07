@@ -83,7 +83,7 @@
                                                     include_once('db_conf.php');
                                                     $sql = "SELECT COUNT(ID) AS RETURNNUM
                                                     FROM BOOK_LOGS
-                                                    WHERE date(CHECKED_OUT,'+1 months') > date('now');";
+                                                    WHERE date(CHECKED_OUT,'+1 months') < date('now');";
                                                     $result = $conn->query($sql);
 
                                                     foreach ($result as $row) {
