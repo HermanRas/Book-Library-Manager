@@ -15,38 +15,81 @@
                                             <!-- metric column -->
                                             <div class="col">
                                                 <!-- .metric -->
+                                                <?php
+                                                    include_once('db_conf.php');
+                                                    $sql = "SELECT COUNT(ID) as 'MEMBERSNUM' FROM MEMBERS ";
+                                                    $result = $conn->query($sql);
+
+                                                    foreach ($result as $row) {
+                                                    break;
+                                                    }
+                                                ?>
                                                 <a href="#" class="metric metric-bordered align-items-center">
                                                     <h2 class="metric-label"> ACTIVE MEMBERS </h2>
                                                     <p class="metric-value h3">
-                                                        <sub><i class="oi oi-people"></i></sub> <span
-                                                            class="value">685</span>
+                                                        <sub><i class="oi oi-people"></i></sub> <span class="value">
+                                                            <?php echo $row['MEMBERSNUM'];?>
+                                                        </span>
                                                     </p>
                                                 </a> <!-- /.metric -->
                                             </div><!-- /metric column -->
                                             <!-- metric column -->
                                             <div class="col">
                                                 <!-- .metric -->
-                                                <a href="#" class="metric metric-bordered align-items-center">
-                                                    <h2 class="metric-label"> BOOKS CHECKED OUT </h2>
-                                                    <p class="metric-value h3">
-                                                        <sub><i class="oi oi-fork"></i></sub> <span
-                                                            class="value">1287</span>
-                                                    </p>
-                                                </a> <!-- /.metric -->
-                                            </div><!-- /metric column -->
-                                            <!-- metric column -->
-                                            <div class="col">
-                                                <!-- .metric -->
+                                                <?php
+                                                    include_once('db_conf.php');
+                                                    $sql = "SELECT COUNT(ID) as 'BOOKNUM' FROM BOOKS ";
+                                                    $result = $conn->query($sql);
+
+                                                    foreach ($result as $row) {
+                                                    break;
+                                                    }
+                                                ?>
                                                 <a href="#" class="metric metric-bordered align-items-center">
                                                     <h2 class="metric-label"> BOOKS IN INVENTORY </h2>
                                                     <p class="metric-value h3">
-                                                        <sub><i class="fa fa-tasks"></i></sub> <span class="value">64
-                                                            365</span>
+                                                        <sub><i class="fa fa-tasks"></i></sub> <span class="value">
+                                                            <?php echo $row['BOOKNUM'];?>
+                                                        </span>
                                                     </p>
                                                 </a> <!-- /.metric -->
                                             </div><!-- /metric column -->
+                                            <!-- metric column -->
                                             <div class="col">
                                                 <!-- .metric -->
+                                                <?php
+                                                    include_once('db_conf.php');
+                                                    $sql = "SELECT COUNT(ID) as 'CHECKOUTNUM' FROM BOOK_LOGS
+                                                            WHERE IN_USER is NULL ;";
+                                                    $result = $conn->query($sql);
+
+                                                    foreach ($result as $row) {
+                                                    break;
+                                                    }
+                                                ?>
+                                                <a href="#" class="metric metric-bordered align-items-center">
+                                                    <h2 class="metric-label"> BOOKS CHECKED OUT </h2>
+                                                    <p class="metric-value h3">
+                                                        <sub><i class="oi oi-fork"></i></sub> <span class="value">
+                                                            <?php echo $row['CHECKOUTNUM'];?>
+                                                        </span>
+                                                    </p>
+                                                </a> <!-- /.metric -->
+                                            </div><!-- /metric column -->
+                                            <!-- metric column -->
+                                            <div class="col">
+                                                <!-- .metric -->
+                                                <?php
+                                                    include_once('db_conf.php');
+                                                    $sql = "SELECT COUNT(ID) AS RETURNNUM
+                                                    FROM BOOK_LOGS
+                                                    WHERE date(CHECKED_OUT,'+1 months') > date('now');";
+                                                    $result = $conn->query($sql);
+
+                                                    foreach ($result as $row) {
+                                                    break;
+                                                    }
+                                                ?>
                                                 <a href="#" class="metric metric-bordered align-items-center">
                                                     <div class="metric-badge">
                                                         <span class="badge badge-lg badge-danger"><span
@@ -54,8 +97,9 @@
                                                             OVER DUE BOOKS</span>
                                                     </div>
                                                     <p class="metric-value h3">
-                                                        <sub><i class="oi oi-timer"></i></sub> <span
-                                                            class="value">8</span>
+                                                        <sub><i class="oi oi-timer"></i></sub> <span class="value">
+                                                            <?php echo $row['RETURNNUM'];?>
+                                                        </span>
                                                     </p>
                                                 </a> <!-- /.metric -->
                                             </div><!-- /metric column -->
