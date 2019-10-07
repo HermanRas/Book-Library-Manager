@@ -48,7 +48,26 @@ if (isset($_GET['b']) && !isset($_POST['bookID'] )){
     ////               Show Checkout Form
     //////////////////////////////////////////////////////
     $b = $_GET['b'];
-    //check out this book
+    //check out this book.
+
+    include_once('db_conf.php');
+    $sql = "SELECT * FROM BOOKS 
+            WHERE ID = '$b' 
+            OR ISBN LIKE '%$b%'
+            ORDER BY TITLE DESC;";
+    $result = $conn->query($sql);
+
+    foreach ($result as $bookrow) {
+    break;
+    }
+
+    if(!isset($bookrow['TITLE'])){
+        echo "<script>
+        alert('Book Not In Library!');
+        window.location.replace('inventorySearch.php');
+        </script>";
+
+    }
 ?>
 <!-- .wrapper -->
 <div class="wrapper">
@@ -70,7 +89,18 @@ if (isset($_GET['b']) && !isset($_POST['bookID'] )){
                                 <label for="memberName">Name on card</label>
                                 <select class="form-control" name="memberName" id="memberName" required="">
                                     <option value=""> Please Select Member </option>
-                                    <option value="member1"> Jan KannieLeesie </option>
+
+                                    <?php
+                                    include_once('db_conf.php');
+                                    $sql = "SELECT * FROM members
+                                            ORDER BY ID asc ;";
+                                    $result = $conn->query($sql);
+
+                                    foreach ($result as $row) {
+                                        echo '<option value="'.$row['ID'].'"> '.$row['NAME'].' '.$row['SURNAME'].' </option>';
+                                    }
+                                    ?>
+
                                 </select>
                                 <div class="invalid-feedback"> Please Select Member </div>
                             </div><!-- /grid column -->

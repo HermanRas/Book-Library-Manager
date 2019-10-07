@@ -17,7 +17,7 @@
         <!-- .app-main -->
         <main class="app-main">
             <!-- main page -->
-            <?php include_once('_profileSearch.php'); ?>
+            <?php include_once('_qr.php'); ?>
             <?php include_once('_footer.php'); ?>
         </main><!-- /.app-main -->
 

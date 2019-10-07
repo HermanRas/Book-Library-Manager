@@ -10,37 +10,41 @@ $member = '';
 //////////////////////////////////////////////////////
     if (!isset($_GET['member']) && isset($_POST['memberID'] )){
         $member = 'saved';
-    ?>
-<!-- .wrapper -->
-<div class="wrapper">
-    <!-- .page -->
-    <div class="page">
-        <!-- .page-inner -->
-        <div class="page-inner">
-            <!-- .page-section -->
-            <div class="page-section">
 
-                <!-- .section-block -->
-                <section>
-                    <h1>Member Updated!</h1>
-                    <div class="form-row">
-                        <div class="col-md-12 mb-3">
-                            <p class="card-text">Select the next member to update.</p>
-                            <hr class="mb-4">
-                        </div>
-                    </div>
-                    <a href="main.php" class="btn btn-primary  btn-lg btn-block">Home</a>
-                </section>
+        //set defaults
+        $name = '';
+        $surname = '';
+        $memberID = '';
+        $email = '';
+        $contact = '';
+        $picture = '';
+
+        //update defaults with real values
+        $name = $_POST['memberName'];
+        $surname = $_POST['memberSurname'];
+        $memberID = $_POST['memberID'];
+        $memberSTID = $_POST['memberSTID'];
+        $email = $_POST['memberEmail'];
+        $contact = $_POST['memberContact'];
+        $memberMax = $_POST['memberMax'];
+
+        //insert new
+        include_once('db_conf.php');
+        $sql = " UPDATE members SET 
+                'NAME'='$name',
+                'SURNAME'='$surname',
+                'EMAIL'='$email',
+                'CELL'='$contact',
+                'STID'='$memberSTID',
+                'BOOK_COUNT'='$memberMax'
+                WHERE ID = $memberID;";
+        $conn->query($sql);
 
 
-            </div><!-- /.page-section -->
-        </div><!-- /.page-inner -->
-    </div><!-- /.page -->
-</div>
-<!-- /.wrapper -->
-
-
-<?php
+        echo "<script>
+        alert('Member Updated!');
+        window.location.replace('qr.php?qr=".$memberID."');
+        </script>";
     }
 //update if scanned
 if (isset($_GET['member']) && !isset($_POST['memberID'] )){
@@ -49,6 +53,15 @@ if (isset($_GET['member']) && !isset($_POST['memberID'] )){
     //////////////////////////////////////////////////////
     $member = $_GET['member'];
     //update this member
+    include_once('db_conf.php');
+    $sql = "SELECT * FROM members
+            WHERE ID = $member ;";
+
+    $result = $conn->query($sql);
+
+    foreach ($result as $row) {
+       break;
+    }
 ?>
 <!-- .wrapper -->
 <div class="wrapper">
@@ -61,54 +74,57 @@ if (isset($_GET['member']) && !isset($_POST['memberID'] )){
 
                 <!-- .section-block -->
                 <section>
-                    <h1>Update Members!</h1>
+                    <h1>Update Members</h1>
                     <form class="needs-validation" method="POST" action="profiles.php" novalidate="">
                         <!-- .form-row -->
                         <div class="form-row">
                             <!-- grid column -->
                             <div class="col-md-6 mb-3">
                                 <label for="memberName">Name</label>
+                                <input type="hidden" name="memberID" value="<?php echo $row['ID']; ?>">
                                 <input type="text" class="form-control" name="memberName" id="memberName" required=""
-                                    placeholder="Member Name">
-                                <div class="invalid-feedback"> Please Enter Member Name</div>
+                                    placeholder="Member Name" value="<?php echo $row['NAME']; ?>">
+                                <div class=" invalid-feedback"> Please Enter Member Name</div>
                             </div><!-- /grid column -->
                             <!-- grid column -->
                             <div class="col-md-6 mb-3">
                                 <label for="memberSurname">Surname</label>
                                 <input type="text" class="form-control" name="memberSurname" id="memberSurname"
-                                    required="" placeholder="Member Surname">
-                                <div class="invalid-feedback"> Please Enter Member Surname</div>
+                                    required="" placeholder="Member Surname" value="<?php echo $row['SURNAME']; ?>">
+                                <div class=" invalid-feedback"> Please Enter Member Surname</div>
                             </div><!-- /grid column -->
                         </div><!-- /.form-row -->
                         <!-- .form-row -->
                         <div class="form-row">
                             <!-- grid column -->
                             <div class="col-md-3 mb-3">
-                                <label for="memberID">Member Number</label>
-                                <input type="text" class="form-control" id="memberID" name="memberID"
-                                    placeholder="SA ID / Student Number" value="<?php echo $member; ?>" required="">
+                                <label for="memberSTID">Member Number</label>
+                                <input type="text" class="form-control" id="memberSTID" name="memberSTID"
+                                    placeholder="SA ID / Student Number" value="<?php echo $row['STID']; ?>"
+                                    required="">
                                 <div class="invalid-feedback"> Please Enter SA ID / Student Number </div>
                             </div><!-- /grid column -->
                             <!-- grid column -->
                             <div class="col-md-3 mb-3">
                                 <label for="memberEmail">Email</label> <input type="email" class="form-control"
-                                    placeholder="Members Email Address" id="memberEmail" name="memberEmail" value=""
-                                    required="">
-                                <div class="invalid-feedback"> Please Enter Member Email </div>
+                                    placeholder="Members Email Address" id="memberEmail" name="memberEmail"
+                                    value="<?php echo $row['EMAIL']; ?>" required="">
+                                <div class=" invalid-feedback"> Please Enter Member Email </div>
                             </div><!-- /grid column -->
                             <!-- grid column -->
                             <div class="col-md-3 mb-3">
                                 <label for="memberContact">Contact Number</label> <input type="text"
                                     class="form-control" placeholder="Members Contact Number" id="memberContact"
-                                    value="" required="" minlength="10">
+                                    name="memberContact" value="<?php echo $row['CELL']; ?>" required=""
+                                    minlength=" 10">
                                 <div class="invalid-feedback"> Please Enter Member Contact Number 0720001234</div>
                             </div><!-- /grid column -->
                             <!-- grid column -->
                             <div class="col-md-3 mb-3">
-                                <label for="memberContact">Max Number Book</label> <input type="number"
-                                    class="form-control" placeholder="Members Contact Number" id="memberContact"
-                                    value="" required="">
-                                <div class="invalid-feedback"> Please Enter Member Number Book 1-10</div>
+                                <label for="memberMax">Max Number Book</label> <input type="number" class="form-control"
+                                    placeholder="Members Contact Number" id="memberMax" name="memberMax"
+                                    value="<?php echo $row['BOOK_COUNT']; ?>" required="">
+                                <div class=" invalid-feedback"> Please Enter Member Number Book 1-10</div>
                             </div><!-- /grid column -->
                         </div><!-- /.form-row -->
                         <hr class="mb-4">
@@ -141,7 +157,7 @@ if ($member === ''){
 
                 <!-- .section-block -->
                 <section>
-                    <h1>Update Member Info!</h1>
+                    <h1>Update Member Info</h1>
                     <!-- start Card -->
                     <div class="card bg-secondary">
                         <div class="card-body text-center">
@@ -168,7 +184,18 @@ if ($member === ''){
                                             <label for="memberName">Name on card</label>
                                             <select class="form-control" name="member" id="memberName" required="">
                                                 <option value=""> Please Select Member </option>
-                                                <option value="member1"> Jan KannieLeesie </option>
+
+                                                <?php
+                                                include_once('db_conf.php');
+                                                $sql = "SELECT * FROM members
+                                                        ORDER BY ID asc ;";
+                                                $result = $conn->query($sql);
+
+                                                foreach ($result as $row) {
+                                                    echo '<option value="'.$row['ID'].'"> '.$row['NAME'].' '.$row['SURNAME'].' </option>';
+                                                }
+                                                ?>
+
                                             </select>
                                             <div class="invalid-feedback"> Please Select Member </div>
                                         </div><!-- /grid column -->

@@ -72,15 +72,15 @@
                                         class="menu-text">Members</span></a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="profiles.php" class="menu-link">
-                                            <span class="fa fa-user"></span>
-                                            Profile
+                                        <a href="profilesNew.php" class="menu-link">
+                                            <span class="fa fa-plus-square"></span>
+                                            New
                                         </a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="profileSearch.php" class="menu-link">
-                                            <span class="fa fa-search"></span>
-                                            Search
+                                        <a href="profiles.php" class="menu-link">
+                                            <span class="fa fa-user"></span>
+                                            Profile
                                         </a>
                                     </li>
                                     <li class="menu-item">
