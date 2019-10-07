@@ -27,7 +27,7 @@
                                                 required="">
                                         </div><!-- /grid column -->
                                     </div><!-- /form row column -->
-                                    <input type="submit" class="btn btn-primary  btn-lg btn-block" value="Update">
+                                    <input type="submit" class="btn btn-primary  btn-lg btn-block" value="Search">
                                 </form>
 
                             </p>

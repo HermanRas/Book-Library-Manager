@@ -34,7 +34,7 @@
                             </div><!-- /grid column -->
                         </div><!-- /.form-row -->
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue Check Out</button>
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Send Notification</button>
                     </form><!-- /form .needs-validation -->
                 </section>
             </div><!-- /.page-section -->

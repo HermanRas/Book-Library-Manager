@@ -94,14 +94,20 @@
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon oi oi-browser"></span> <span
-                                        class="menu-text">Books Inventory</span></a>
+                                <a href="" class="menu-link"><span class="menu-icon oi oi-browser"></span>
+                                    <span class="menu-text">Books Inventory</span></a>
                                 <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="" class="menu-link">
+                                        <a href="inventory.php" class="menu-link">
                                             <span class="fa fa-book-open"></span>
                                             Manage Inventory
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="inventorySearch.php" class="menu-link">
+                                            <span class="fa fa-search"></span>
+                                            Search
                                         </a>
                                     </li>
                                 </ul><!-- /child menu -->
@@ -112,12 +118,12 @@
 
                             <!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon oi oi-wrench"></span> <span
+                                <a href="" class="menu-link"><span class="menu-icon oi oi-wrench"></span> <span
                                         class="menu-text">Settings</span></a>
                                 <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="#" class="menu-link">
+                                        <a href="users.php" class="menu-link">
                                             <span class="fa fa-user-edit"></span>
                                             Manage System Users
                                         </a>

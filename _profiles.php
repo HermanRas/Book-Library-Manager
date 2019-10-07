@@ -42,13 +42,13 @@ $member = '';
 
 <?php
     }
-//check if scanned
+//update if scanned
 if (isset($_GET['member']) && !isset($_POST['memberID'] )){
     //////////////////////////////////////////////////////
-    ////               Show Checkout Form
+    ////               Show Update Form
     //////////////////////////////////////////////////////
     $member = $_GET['member'];
-    //check out this book
+    //update this member
 ?>
 <!-- .wrapper -->
 <div class="wrapper">
@@ -62,56 +62,57 @@ if (isset($_GET['member']) && !isset($_POST['memberID'] )){
                 <!-- .section-block -->
                 <section>
                     <h1>Update Members!</h1>
-                    <form class="needs-validation" method="POST" action="checkOut.php" novalidate="">
+                    <form class="needs-validation" method="POST" action="profiles.php" novalidate="">
                         <!-- .form-row -->
                         <div class="form-row">
                             <!-- grid column -->
                             <div class="col-md-6 mb-3">
-                                <label for="memberName">Name on card</label>
-                                <select class="form-control" name="memberName" id="memberName" required="">
-                                    <option value=""> Please Select Member </option>
-                                    <option value="member1"> Jan KannieLeesie </option>
-                                </select>
-                                <div class="invalid-feedback"> Please Select Member </div>
+                                <label for="memberName">Name</label>
+                                <input type="text" class="form-control" name="memberName" id="memberName" required=""
+                                    placeholder="Member Name">
+                                <div class="invalid-feedback"> Please Enter Member Name</div>
                             </div><!-- /grid column -->
-                            <!-- /grid column -->
+                            <!-- grid column -->
                             <div class="col-md-6 mb-3">
-                                <label for="bookCondition">Book Condition</label>
-                                <select class="form-control" name="bookCondition" id="bookCondition" required="">
-                                    <option value="">Please Select Book Condition</option>
-                                    <option value="gd">GOOD</option>
-                                    <option value="fp">Folded Pages</option>
-                                    <option value="tp">Teared Pages</option>
-                                    <option value="wd">Water Damage</option>
-                                    <option value="od">Other Damage</option>
-                                </select>
-                                <div class="invalid-feedback">Please Select Book Condition</div>
+                                <label for="memberSurname">Surname</label>
+                                <input type="text" class="form-control" name="memberSurname" id="memberSurname"
+                                    required="" placeholder="Member Surname">
+                                <div class="invalid-feedback"> Please Enter Member Surname</div>
                             </div><!-- /grid column -->
                         </div><!-- /.form-row -->
                         <!-- .form-row -->
                         <div class="form-row">
                             <!-- grid column -->
                             <div class="col-md-3 mb-3">
-                                <label for="bookID">Book Id</label>
-                                <input type="text" class="form-control" id="bookID" name="bookID" placeholder="BookId"
-                                    value="<?php echo $member; ?>" required="">
-                                <div class="invalid-feedback"> bookID </div>
+                                <label for="memberID">Member Number</label>
+                                <input type="text" class="form-control" id="memberID" name="memberID"
+                                    placeholder="SA ID / Student Number" value="<?php echo $member; ?>" required="">
+                                <div class="invalid-feedback"> Please Enter SA ID / Student Number </div>
                             </div><!-- /grid column -->
                             <!-- grid column -->
                             <div class="col-md-3 mb-3">
-                                <label for="backDate">Checkout Date</label> <input type="date" class="form-control"
-                                    id="backDate" value="2019-10-01" required="">
-                                <div class="invalid-feedback"> Valid date required </div>
+                                <label for="memberEmail">Email</label> <input type="email" class="form-control"
+                                    placeholder="Members Email Address" id="memberEmail" name="memberEmail" value=""
+                                    required="">
+                                <div class="invalid-feedback"> Please Enter Member Email </div>
                             </div><!-- /grid column -->
                             <!-- grid column -->
                             <div class="col-md-3 mb-3">
-                                <label for="backTime">Checkout Time</label> <input type="time" class="form-control"
-                                    id="backTime" value="08:00" required="">
-                                <div class="invalid-feedback"> Valid date required </div>
+                                <label for="memberContact">Contact Number</label> <input type="text"
+                                    class="form-control" placeholder="Members Contact Number" id="memberContact"
+                                    value="" required="" minlength="10">
+                                <div class="invalid-feedback"> Please Enter Member Contact Number 0720001234</div>
+                            </div><!-- /grid column -->
+                            <!-- grid column -->
+                            <div class="col-md-3 mb-3">
+                                <label for="memberContact">Max Number Book</label> <input type="number"
+                                    class="form-control" placeholder="Members Contact Number" id="memberContact"
+                                    value="" required="">
+                                <div class="invalid-feedback"> Please Enter Member Number Book 1-10</div>
                             </div><!-- /grid column -->
                         </div><!-- /.form-row -->
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue Check Out</button>
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Update Member Profiel</button>
                     </form><!-- /form .needs-validation -->
                 </section>
 
