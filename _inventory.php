@@ -94,7 +94,7 @@ if (isset($_GET['b']) && !isset($_POST['bookID'] )){
     if(!isset($row['TITLE'])){
         echo "<script>
         alert('Book Not In Library!');
-        window.location.replace('inventorySearch.php');
+        window.location.replace('lookup.php?id=$b');
         </script>";
     }
 ?>

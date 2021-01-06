@@ -48,6 +48,7 @@
                     echo '    <h5 class="card-title">Book "'.$title.'" ADDED</h5>';
                     echo '    <p class="card-text">You can now check this book out.</p>';
                     echo '    <a href="main.php" class="btn btn-primary">Home</a>';
+                    echo '    <a href="inventory.php" class="btn btn-secondary">Add More Books</a>';
                     echo '</div>';
                     } ?>
                 <!-- http://openlibrary.org/api/books?bibkeys=ISBN:0789730138&jscmd=data&format=json -->

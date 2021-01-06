@@ -2,7 +2,6 @@
 $qr = '';
 if(isset($_GET['qr'])){
     $qr = $_GET['qr'];
-}
 ?>
 <!-- .wrapper -->
 <div class="wrapper">
@@ -61,7 +60,7 @@ if(isset($_GET['qr'])){
                             settings.fill = '#000000' ;
                             settings.background = null ;
                             settings.size = 250 ;
-                            settings.text = document.getElementById('QrID');
+                            settings.text = document.getElementById('QrID').innerText;
                         return settings;
                     }
 
@@ -83,3 +82,48 @@ if(isset($_GET['qr'])){
     </div><!-- /.page -->
 </div>
 <!-- /.wrapper -->
+<?php
+}else{
+?>
+
+<!-- start row -->
+<div class="row">
+    <div class="col-md-12">
+        <video style="max-width:300px; height:180px;" id="qr-video"></video>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <span id="cam-qr-result">Please scan QR Code</span>
+    </div>
+</div>
+<!-- end end -->
+
+<script type="module">
+    //import plugins
+    import QrScanner from "./JS/qr-scanner.min.js";
+    QrScanner.WORKER_PATH = './JS/qr-scanner-worker.min.js';
+
+    //set defaults
+    const video = document.getElementById('qr-video');
+    const camQrResult = document.getElementById('cam-qr-result');
+
+    //run scan
+    function setResult(label, result) {
+        label.innerHTML = '<h4> Memeber: '+ result + ' Selected</h4> Please close and continue to checkout<br><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>';
+        document.getElementById('memberName').value = result;
+        
+        label.style.color = 'orange';
+        clearTimeout(label.highlightTimeout);
+        label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
+    }
+
+    // ####### Web Cam Scanning #######
+    const scanner = new QrScanner(video, result => setResult(camQrResult, result));
+    scanner.start();
+    scanner.setInversionMode('original');
+</script>
+
+<?php
+}
+?>

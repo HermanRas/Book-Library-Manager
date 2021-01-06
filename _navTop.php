@@ -37,15 +37,14 @@
                         <div class="dropdown d-flex">
                             <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false"><span class="user-avatar user-avatar-md"><img
-                                        src="IMG/PPic.jfif" alt=""></span>
-                                <span class="account-summary pr-lg-4 d-none d-lg-block"><span
-                                        class="account-name">Gerald
-                                        Mashabane</span>
+                                        src="./IMG/fav_icon.png" alt=""></span>
+                                <span class="account-summary pr-lg-4 d-none d-lg-block"><span class="account-name">Book
+                                        Admin</span>
                                     <span class="account-description">Senior Librarian</span></span></button>
                             <!-- .dropdown-menu -->
                             <div class="dropdown-menu">
                                 <div class="dropdown-arrow ml-3"></div>
-                                <h6 class="dropdown-header d-none d-md-block d-lg-none"> Gerald Mashabane </h6><a
+                                <h6 class="dropdown-header d-none d-md-block d-lg-none"> Book Admin</h6><a
                                     class="dropdown-item" href="#"><span class="dropdown-icon oi oi-person"></span>
                                     Profile</a> <a class="dropdown-item" href="index.php"><span
                                         class="dropdown-icon oi oi-account-logout"></span> Logout</a>

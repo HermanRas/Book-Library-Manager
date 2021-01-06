@@ -6,9 +6,9 @@
                 <header class="aside-header d-block d-md-none">
                     <!-- .btn-account -->
                     <button class="btn-account" type="button" data-toggle="collapse" data-target="#dropdown-aside"><span
-                            class="user-avatar user-avatar-lg"><img src="IMG/PPic.jfif" alt=""></span> <span
+                            class="user-avatar user-avatar-lg"><img src="./IMG/fav_icon.png" alt=""></span> <span
                             class="account-icon"><span class="fa fa-caret-down fa-lg"></span></span> <span
-                            class="account-summary"><span class="account-name">Gerald Mashabane </span> <span
+                            class="account-summary"><span class="account-name">Book Admin</span> <span
                                 class="account-description">Marketing Manager</span></span></button>
                     <!-- /.btn-account -->
                     <!-- .dropdown-aside -->
@@ -33,8 +33,8 @@
                         <ul class="menu">
                             <!-- .menu-item -->
                             <li class="menu-item has-active">
-                                <a href="index.php" class="menu-link"><span class="menu-icon fas fa-home"></span> <span
-                                        class="menu-text">Dashboard</span></a>
+                                <a href="main.php" class="menu-link"><span class="menu-icon fas fa-home"></span>
+                                    <span class="menu-text">Dashboard</span></a>
                             </li><!-- /.menu-item -->
 
                             <!-- .menu-item -->
